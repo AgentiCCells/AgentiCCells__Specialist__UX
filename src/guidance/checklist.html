@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UX checklist before a release</title>
+<meta name="description" content="The checks to run on every page before a release: measured at 390 and 1280 px, in light and dark, with the reader's question in mind.">
+<style>
+body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
+main{max-width:44rem;margin:0 auto;padding:2rem 1rem 3rem}
+nav.crumbs{font-size:.95rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0 1rem}nav.crumbs a{display:inline-block;padding:.55rem 0}footer a{display:inline-block;padding:.3rem 0}
+h1{font-size:1.9rem;line-height:1.2}h2{font-size:1.3rem;margin-top:2.2rem}h3{font-size:1.1rem;margin-top:1.6rem}
+a{color:#1d4f91}code{font-size:.88em;background:#f0e8db;padding:0 .2em;border-radius:3px}
+pre{background:#f0e8db;padding:.8rem;overflow-x:auto}pre code{background:none;padding:0}
+blockquote{border-left:4px solid #b5651d;margin:1rem 0;padding:.1rem 1rem;background:#f3e9da}
+.table{overflow-x:auto}table{border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid #d8cdbb;padding:.35rem .5rem;text-align:left;vertical-align:top}th{background:#f0e8db}
+footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem;font-size:.9rem;color:#666}
+@media(prefers-color-scheme:dark){body{background:#17140f;color:#eee}a{color:#8fb8ff}code,pre,th{background:#2a2219}blockquote{background:#2a2219}th,td{border-color:#4a4034}footer{color:#aaa;border-color:#444}}
+</style>
+</head>
+<body>
+<main>
+<nav class="crumbs" aria-label="This site"><a href="../index.html">Specialist: UX</a><a href="../guidance/index.html">Guidance</a><a href="../pack/index.html">Day-one pack</a><a href="../reviews/index.html">Reviews</a><a href="../abp/specialist-ux.html">Behaviour policy</a></nav>
+<h1 id="ux-checklist-before-a-release">UX checklist before a release</h1>
+<p>Run it on every page a release changes, and on the home page every time. Most checks are measurable; <a href="../pack/index.html#the-measuring-script">pack/measure.mjs</a> measures the ones marked <strong>(m)</strong>. Each line links the principle behind it.</p>
+<h2 id="set-up">Set up</h2>
+<ul><li>Write down the reader and the question they arrive with. Without one, this checklist is a matter of taste.</li><li>Open the page in a real browser at <strong>390 × 844</strong> (a phone) and <strong>1280 × 800</strong>, in light and dark.</li></ul>
+<h2 id="the-first-screen-on-the-phone">The first screen (on the phone)</h2>
+<ul><li>[ ] It says what this is, who made it, and the next step (<a href="principles.html#1-the-first-screen-says-what-this-is-who-made-it-and-what-to-do-next">1</a>).</li><li>[ ] The product or thing is named by its full name (<a href="principles.html#2-name-the-thing-before-you-argue-for-it-and-give-each-thing-one-name">2</a>).</li><li>[ ] Any number with £ or € says what it is in the words beside it (<a href="principles.html#7-a-currency-sign-reads-as-a-price-unless-the-words-beside-it-say-otherwise">7</a>).</li><li>[ ] Every main section is reachable in one tap (a Menu counts) (<a href="principles.html#18-every-destination-one-tap-from-the-phone-s-first-screen-hidden-scroll-needs-a-cue">18</a>).</li><li>[ ] The site's own name is not cut <strong>(m)</strong> (<a href="principles.html#21-measure-at-390-px-nothing-panning-covered-or-cut">21</a>).</li></ul>
+<h2 id="layout-m">Layout <strong>(m)</strong></h2>
+<ul><li>[ ] No sideways scroll at 390 px: scroll width equals viewport width (<a href="principles.html#21-measure-at-390-px-nothing-panning-covered-or-cut">21</a>).</li><li>[ ] No text under 12 px; no tap target under 24 px; navigation targets 44 px (<a href="principles.html#23-floors-text-12-px-targets-24-px-44-for-navigation-never-colour-alone">23</a>).</li><li>[ ] No floating control covering text.</li><li>[ ] Page height in phone screens noted, and compared with the last release (<a href="principles.html#22-length-is-a-cost-the-reader-pays">22</a>).</li><li>[ ] Every image has alt text (empty for decoration).</li><li>[ ] No page errors in the console (<a href="principles.html#27-check-in-a-real-browser-with-real-data-the-console-counts">27</a>).</li></ul>
+<h2 id="words">Words</h2>
+<ul><li>[ ] No internal ids, file paths, status codes, agent addresses or team verbs in reader text (<a href="principles.html#5-write-in-the-reader-s-words-not-the-team-s">5</a>, <a href="principles.html#6-an-address-with-an-reads-as-an-email-address">6</a>).</li><li>[ ] Acronyms glossed on first use.</li><li>[ ] Generated strings tried with 0, 1, many and unknown (<a href="principles.html#10-templates-handle-the-edge-cases-in-the-data">10</a>).</li><li>[ ] Every status label uses the source's own words (<a href="principles.html#8-a-label-never-says-more-than-its-source">8</a>).</li><li>[ ] Each link's words name where it goes; outside links show the address (<a href="principles.html#17-a-link-says-where-it-goes">17</a>).</li><li>[ ] The same place has the same label as on sister sites (<a href="principles.html#20-same-destination-same-label-one-primary-action">20</a>).</li></ul>
+<h2 id="honesty">Honesty</h2>
+<ul><li>[ ] What is not here yet is said, with a date (<a href="principles.html#11-say-what-is-not-here">11</a>).</li><li>[ ] Every &quot;tell us&quot;, button and promise has a working route; if not, it is removed (<a href="principles.html#15-never-show-an-invitation-control-or-promise-without-a-working-route">15</a>).</li><li>[ ] Every trust badge links to what a reader can check (<a href="principles.html#12-a-trust-claim-needs-an-action-beside-it">12</a>).</li><li>[ ] Nothing on the page contradicts anything else on it, footer included (<a href="principles.html#13-one-page-tells-one-story">13</a>).</li><li>[ ] Every time shown has its age or a date; nothing says &quot;today&quot; or &quot;live&quot; after the event (<a href="principles.html#14-freshness-is-part-of-the-fact">14</a>).</li><li>[ ] Made-up examples, simulations and agent authorship are labelled where they are read (<a href="principles.html#16-mark-simulated-as-simulated-and-agents-as-agents">16</a>).</li><li>[ ] Every number comes from data, with its source (<a href="principles.html#29-generate-pages-from-the-record-so-they-cannot-drift">29</a>).</li></ul>
+<h2 id="states">States</h2>
+<ul><li>[ ] The empty state says why and offers one way forward (<a href="principles.html#24-design-the-empty-offline-and-changed-states">24</a>).</li><li>[ ] If a fact changed, every way in to it was checked (<a href="principles.html#25-when-a-fact-changes-check-every-way-in-to-it">25</a>).</li></ul>
+<h2 id="after-a-fix">After a fix</h2>
+<ul><li>[ ] The original finding is gone, and the whole first screen was re-measured on the phone (<a href="principles.html#28-after-any-fix-re-measure-the-whole-first-screen-at-the-narrowest-width">28</a>).</li></ul>
+<footer>
+<p>This page as Markdown: <a href="checklist.md">checklist.md</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
+<p>Version __VERSION__ · specialist.ux@AgentiCCells.dinis · Code Apache-2.0, text CC BY 4.0.</p>
+</footer>
+</main>
+</body>
+</html>

@@ -4,56 +4,64 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Specialist: UX</title>
-<meta name="description" content="The UX specialist agent for AgentiCCells teams: what readers and users trip on and how to avoid it. A bootstrap pack, reviews on request, comments and guidance kept current.">
+<meta name="description" content="The UX specialist for AgentiCCells teams finds what readers and users trip on and gives every team guidance to avoid it: principles, a day-one pack, and reviews on request.">
 <style>
 body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
-main{max-width:40rem;margin:0 auto;padding:3rem 1rem}
-h1{font-size:2rem;line-height:1.2;margin-bottom:.5rem}
-h2{font-size:1.3rem;margin-top:2.5rem}
+main{max-width:42rem;margin:0 auto;padding:2rem 1rem 3rem}
+nav.top{display:flex;flex-wrap:wrap;gap:.25rem 1rem;font-size:1rem;margin-bottom:1.5rem}
+nav.top a{display:inline-block;padding:.5rem 0;min-height:24px}
+h1{font-size:2rem;line-height:1.2;margin:.2rem 0 .6rem}
+h2{font-size:1.3rem;margin-top:2.4rem}
 a{color:#1d4f91}
+.lead{font-size:1.1rem}
 .status{display:inline-block;padding:.1rem .6rem;border:2px solid #b5651d;border-radius:1rem;color:#7a3f0c;font-weight:600;font-size:.9rem}
-.placeholder{border-left:4px solid #b5651d;background:#f3e9da;padding:.6rem 1rem}
-dt{font-weight:600;margin-top:1rem}
-dd{margin:0}
+.cards{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:.8rem}
+.cards li{border:1px solid #d8cdbb;border-radius:.5rem;padding:.8rem 1rem;background:#fffdf8}
+.cards a{font-weight:600;display:inline-block;padding:.15rem 0}
+.note{border-left:4px solid #b5651d;background:#f3e9da;padding:.6rem 1rem}
 code{font-size:.9em}
+main>ul li>a:first-child,footer a{display:inline-block;padding:.25rem 0}
 footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem}
 .muted{color:#666;font-size:.9rem}
-@media(prefers-color-scheme:dark){body{background:#17140f;color:#eee}a{color:#8fb8ff}.status{color:#f0b37a;border-color:#f0b37a}.placeholder{background:#2a2219}.muted{color:#aaa}footer{border-color:#444}}
+@media(prefers-color-scheme:dark){body{background:#17140f;color:#eee}a{color:#8fb8ff}.status{color:#f0b37a;border-color:#f0b37a}.cards li{background:#211c15;border-color:#4a4034}.note{background:#2a2219}.muted{color:#aaa}footer{border-color:#444}}
 </style>
 </head>
 <body>
 <main>
+<nav class="top" aria-label="This site"><a href="guidance/index.html">Guidance</a><a href="pack/index.html">Day-one pack</a><a href="reviews/index.html">Reviews</a><a href="abp/specialist-ux.html">Behaviour policy</a></nav>
+
 <h1>Specialist: UX</h1>
-<p>Status: <span class="status">starting</span></p>
+<p class="lead">What readers and users trip on, and how to avoid it. A long-lived agent that gives every AgentiCCells team its UX guidance, a day-one pack, and reviews on request. It never does a team's work; it comments and proposes.</p>
+<p>Status: <span class="status">first version, 16 November 2026</span></p>
 
-<p>The UX specialist is a long-lived agent, <code>specialist.ux@AgentiCCells.dinis</code>. It looks after what readers and users trip on and how to avoid it: the UX guidance every team starts from.</p>
+<h2>Start here</h2>
+<ul class="cards">
+<li><a href="pack/index.html">The day-one pack</a><br>Starting a team? Copy a UX.md, a spec template and a measuring script. Ten minutes.</li>
+<li><a href="guidance/principles.html">Thirty principles</a><br>Each from a trip a reader really had on one of our sites, with its source.</li>
+<li><a href="guidance/checklist.html">The checklist</a><br>What to check before every release, most of it measurable.</li>
+<li><a href="reviews/index.html">Ask for a review</a><br>How to ask, what you get back, and how long it takes.</li>
+</ul>
 
-<h2>What the specialist is</h2>
-<p>It works alongside every other AgentiCCells agent that shares its name or has a compatible focus, with guidance and reviews. It does not do other teams' work. It works through lanes and repositories, and a person owns the skill: Dinis Cruz, until he names someone else.</p>
-<p>The idea is set out in the newsroom article on <a href="https://newsroom.sgit.ai/articles/specialist-agents-for-every-team.html">specialist agents for every team</a>.</p>
+<h2>What is here</h2>
+<ul>
+<li><a href="guidance/index.html">Guidance</a>: principles, the checklist, and two review methods (the cold reader and synthetic readers).</li>
+<li><a href="examples/index.html">Examples</a>: the best pages and patterns we have, and why they work.</li>
+<li><a href="mistakes/index.html">Mistakes</a>: what went wrong in more than one team, and the process cause.</li>
+<li><a href="reviews/2026-11-16__agenticcells-site/review.html">A worked review</a>: agenticcells.site, seven findings, written as a proposal.</li>
+<li><a href="abp/specialist-ux.html">This agent's behaviour policy</a>: deny by default; what it may read, write, review and comment on, and what it never does.</li>
+</ul>
+<p>Every page has a Markdown twin beside it (the same address ending in <code>.md</code>), for agents.</p>
 
-<h2>What a team gets</h2>
-<dl>
-<dt>The bootstrap pack</dt>
-<dd>A new team starts from the UX guidance pack rather than from nothing.</dd>
-<dt>A review on request</dt>
-<dd>When you ask, the specialist reviews your work for the places readers and users trip.</dd>
-<dt>Comments</dt>
-<dd>Comments on your pull requests and drafts.</dd>
-<dt>Guidance kept current</dt>
-<dd>The specialist keeps the UX guidance up to date, so teams work from the current version.</dd>
-</dl>
+<h2>Where the guidance comes from</h2>
+<p>From reading, on 16 November 2026, what our teams recorded about readers and users from September to November 2026: the synthetic readers and the sherpa reviews on promptugal.news, the storm site, the Web Summit team site, newsroom.sgit.ai, riskmandate.ai, the PrompTugal iOS apps, and the AgentiCCells sites. Most of those findings come from agents reading pages cold, which is inspection, not user research.</p>
+<p>The idea is set out in the newsroom article on <a href="https://newsroom.sgit.ai/articles/specialist-agents-for-every-team.html">specialist agents for every team</a>. The skill's owner is Dinis Cruz, until he names someone else.</p>
 
-<h2>How to ask for a review</h2>
-<p>Reviews will be requested through a lane.</p>
-<p class="placeholder"><strong>Placeholder:</strong> the review lane is still to be wired. Its address and how to use it will be written here when it exists.</p>
-
-<h2>Status</h2>
-<p>Starting. This page is the first version of the specialist's home. The bootstrap pack, the review lane and the guidance are not yet published here.</p>
+<h2>What is not here yet</h2>
+<p class="note">No lane for reviews yet: ask through a file in this repository or a message to this session (see <a href="reviews/index.html">Reviews</a>). No commenting on other teams' pull requests yet: this agent's GitHub access covers only its own repository. Turnaround times are targets, not yet measured.</p>
 
 <footer>
-<p class="muted">Part of <a href="https://agenticcells.site">AgentiCCells</a>.</p>
-<p class="muted">Version __VERSION__ · Made by the <a href="https://github.com/AgentiCCells/AgentiCCells__Site__Factory">AgentiCCells site factory</a> · Code Apache-2.0, text CC BY 4.0.</p>
+<p class="muted">Part of <a href="https://agenticcells.site">AgentiCCells</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
+<p class="muted">Version __VERSION__ · specialist.ux@AgentiCCells.dinis · Code Apache-2.0, text CC BY 4.0.</p>
 </footer>
 </main>
 </body>

@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pack</title>
-<meta name="description" content="Being written on 16 November 2026 from the first reading of our sites and repositories. Nothing here yet is guidance a team should follow.">
+<title>The UX day-one pack</title>
+<meta name="description" content="What a new AgentiCCells team copies on its first day, so its UX starts from what we already learned: a UX.md for the repository root, a spec template, the measuring script and the checklist.">
 <style>
 body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
 main{max-width:44rem;margin:0 auto;padding:2rem 1rem 3rem}
-nav.crumbs{font-size:.9rem;margin-bottom:1rem}
+nav.crumbs{font-size:.95rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0 1rem}nav.crumbs a{display:inline-block;padding:.55rem 0}footer a{display:inline-block;padding:.3rem 0}
 h1{font-size:1.9rem;line-height:1.2}h2{font-size:1.3rem;margin-top:2.2rem}h3{font-size:1.1rem;margin-top:1.6rem}
 a{color:#1d4f91}code{font-size:.88em;background:#f0e8db;padding:0 .2em;border-radius:3px}
 pre{background:#f0e8db;padding:.8rem;overflow-x:auto}pre code{background:none;padding:0}
@@ -20,9 +20,19 @@ footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem;font-size:.9re
 </head>
 <body>
 <main>
-<nav class="crumbs"><a href="../index.html">Specialist: UX</a> · <a href="../guidance/index.html">Guidance</a> · <a href="../pack/index.html">Pack</a> · <a href="../reviews/index.html">Reviews</a> · <a href="../abp/specialist-ux.html">ABP</a></nav>
-<h1 id="pack">Pack</h1>
-<p>Being written on 16 November 2026 from the first reading of our sites and repositories. Nothing here yet is guidance a team should follow.</p>
+<nav class="crumbs" aria-label="This site"><a href="../index.html">Specialist: UX</a><a href="../guidance/index.html">Guidance</a><a href="../pack/index.html">Day-one pack</a><a href="../reviews/index.html">Reviews</a><a href="../abp/specialist-ux.html">Behaviour policy</a></nav>
+<h1 id="the-ux-day-one-pack">The UX day-one pack</h1>
+<p>Version 1.0.0, 16 November 2026. A new team copies these into its repository on day one, before its first page. They take about ten minutes to read. Text is CC BY 4.0 and code is Apache-2.0: copy, change and keep the source line.</p>
+<div class="table"><table><thead><tr><th>File</th><th>Copy to</th><th>What it does</th></tr></thead><tbody><tr><td><a href="UX.html">UX.md</a></td><td>your repository root, beside CLAUDE.md</td><td>the ten rules every page follows, and how to ask for a review; point your CLAUDE.md at it</td></tr><tr><td><a href="spec-template.html">spec-template.md</a></td><td>wherever your team keeps specs</td><td>the reader, their question, and the checks, written before you build</td></tr><tr><td><a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX/blob/dev/pack/measure.mjs">measure.mjs</a></td><td><code>scripts/</code></td><td>measures a page at a phone and a desktop width</td></tr><tr><td><a href="../guidance/checklist.html">the checklist</a></td><td>link it from your release notes</td><td>what to check before each release</td></tr></tbody></table></div>
+<h2 id="day-one-in-order">Day one, in order</h2>
+<ol><li>Copy <code>UX.md</code> and add one line to your CLAUDE.md: &quot;Every page a reader sees follows UX.md.&quot;</li><li>Write the first spec from <code>spec-template.md</code>: who your reader is, and the question they arrive with. Everything else follows from it.</li><li>Copy <code>measure.mjs</code> to <code>scripts/</code> and run it on your first page: <code>node scripts/measure.mjs https://your-site/ --shots shots/</code>.</li><li>Before your first release, <a href="../reviews/index.html#how-to-ask">ask for a review</a>. The article this service comes from asks every new team to do so (<a href="https://newsroom.sgit.ai/articles/specialist-agents-for-every-team.html">https://newsroom.sgit.ai/articles/specialist-agents-for-every-team.html</a>).</li></ol>
+<h2 id="the-measuring-script">The measuring script</h2>
+<p><code>measure.mjs</code> opens each address in Chromium as an iPhone 13 and at 1280 × 800, and prints, for each: the status, page height in screens, sideways overflow, words, text under 12 px, tap targets under 24 px, images without alt, page errors, the links in the first screen and whether a tap reaches each, and the first screen's text. <code>--shots &lt;dir&gt;</code> saves a screenshot of each first screen; <code>--json</code> prints data instead.</p>
+<p>Small targets are listed, not failed: a link inside a sentence may be smaller (WCAG 2.2, 2.5.8, the inline exception), but navigation, buttons and links standing alone should be at least 24 px, and navigation 44 px.</p>
+<p>It exits 1 when a page has sideways overflow, page errors or a non-2xx status, so it can sit in a release check. It measures; it does not judge. A person or an agent reads the result and the screenshots.</p>
+<p>It needs Playwright with Chromium. In our cloud sessions it is already installed. Tested on 16 November 2026 against agenticcells.site, promptugal.news and this site.</p>
+<h2 id="what-the-pack-does-not-do">What the pack does not do</h2>
+<ul><li>It does not replace a review by a cold reader, or real people.</li><li>It does not check words, honesty or whether the page answers the reader's question: those need reading. The <a href="../guidance/checklist.html">checklist</a> says what to read for.</li></ul>
 <footer>
 <p>This page as Markdown: <a href="index.md">index.md</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
 <p>Version __VERSION__ · specialist.ux@AgentiCCells.dinis · Code Apache-2.0, text CC BY 4.0.</p>

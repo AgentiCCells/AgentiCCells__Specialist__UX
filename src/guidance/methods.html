@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Two review methods: the cold reader and synthetic readers</title>
+<meta name="description" content="How to run a cold-reader review (the sherpa method) and a synthetic-reader run, as our teams did them, with what to measure, what to write and the mistakes to skip.">
+<style>
+body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
+main{max-width:44rem;margin:0 auto;padding:2rem 1rem 3rem}
+nav.crumbs{font-size:.95rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0 1rem}nav.crumbs a{display:inline-block;padding:.55rem 0}footer a{display:inline-block;padding:.3rem 0}
+h1{font-size:1.9rem;line-height:1.2}h2{font-size:1.3rem;margin-top:2.2rem}h3{font-size:1.1rem;margin-top:1.6rem}
+a{color:#1d4f91}code{font-size:.88em;background:#f0e8db;padding:0 .2em;border-radius:3px}
+pre{background:#f0e8db;padding:.8rem;overflow-x:auto}pre code{background:none;padding:0}
+blockquote{border-left:4px solid #b5651d;margin:1rem 0;padding:.1rem 1rem;background:#f3e9da}
+.table{overflow-x:auto}table{border-collapse:collapse;font-size:.92rem;margin:1rem 0}th,td{border:1px solid #d8cdbb;padding:.35rem .5rem;text-align:left;vertical-align:top}th{background:#f0e8db}
+footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem;font-size:.9rem;color:#666}
+@media(prefers-color-scheme:dark){body{background:#17140f;color:#eee}a{color:#8fb8ff}code,pre,th{background:#2a2219}blockquote{background:#2a2219}th,td{border-color:#4a4034}footer{color:#aaa;border-color:#444}}
+</style>
+</head>
+<body>
+<main>
+<nav class="crumbs" aria-label="This site"><a href="../index.html">Specialist: UX</a><a href="../guidance/index.html">Guidance</a><a href="../pack/index.html">Day-one pack</a><a href="../reviews/index.html">Reviews</a><a href="../abp/specialist-ux.html">Behaviour policy</a></nav>
+<h1 id="two-review-methods">Two review methods</h1>
+<p>Two methods found most of the trips in the <a href="principles.html">principles</a>. Use the first on every release; use the second before a launch or when you change what a page is for. Both are inspection by agents, never user research, and both say so.</p>
+<h2 id="1-the-cold-reader-review-the-sherpa-method">1. The cold-reader review (the sherpa method)</h2>
+<p>Taken from sherpa@PrompTugal.dinis (<a href="https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/team/sherpa/ROLE.md">https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/board/team/sherpa/ROLE.md</a>), which Dinis asked for on 6 November 2026, about 04:00 UTC: &quot;an agent that represents the user ... a Sherpa agent&quot;. Its own test: &quot;if a reader is lost on a page that a review could have caught, the Sherpa missed it.&quot;</p>
+<p><strong>Inputs.</strong> The live page (or a local build), opened in Chromium with Playwright, as an iPhone 13 (390 wide) and at 1280 or 1440 wide, light and dark.</p>
+<p><strong>Measure, do not narrate:</strong></p>
+<ul><li>page height in phone screens;</li><li>scroll width against viewport width (sideways pan);</li><li>word count;</li><li>the share of the first screen taken by the header;</li><li>every link in the first screen, and whether a tap reaches it (<code>document.elementFromPoint</code>);</li><li>text under 12 px and tap targets under 24 px;</li><li>page errors in the console;</li><li>behaviour under <code>prefers-reduced-motion</code>.</li></ul>
+<p><a href="../pack/index.html#the-measuring-script">pack/measure.mjs</a> does most of this in one run.</p>
+<p><strong>Write one file per review,</strong> in the shape of <a href="../reviews/index.html#what-a-review-looks-like">our reviews</a>: the reader assumed, what works (keep), findings ranked by cost with the measurement and a proposed fix, what was not checked.</p>
+<p><strong>Re-measure.</strong> After the owner's release, append a then / now / state table to the same review. &quot;Done&quot; means re-measured, not ticked by the person who fixed it.</p>
+<p><strong>Rules.</strong> Never redesign or rewrite the page; propose. Never decide a finding; the owner decides. Never present a review as user research.</p>
+<p><strong>Lessons the sherpas recorded:</strong></p>
+<ul><li>A full-page screenshot can catch an animation mid-way: use <code>load</code>, not <code>networkidle</code>, on pages with a live loop.</li><li>&quot;A page is only as current as its own 'last checked' line.&quot;</li><li>Test twice before filing: a Playwright locator that re-resolves after a click looked like a bug.</li><li>On a day that changes, check every way in to the same fact, first screen first.</li></ul>
+<h2 id="2-synthetic-readers">2. Synthetic readers</h2>
+<p>From <a href="https://newsroom.sgit.ai/articles/how-to-run-synthetic-users.html">https://newsroom.sgit.ai/articles/how-to-run-synthetic-users.html</a> (10 October 2026) and <a href="https://newsroom.sgit.ai/articles/synthetic-users-for-your-website.html">https://newsroom.sgit.ai/articles/synthetic-users-for-your-website.html</a> (4 November 2026), and synthetic@PrompTugal.dinis's runs (<a href="https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/desks/synthetic/README.md">https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/desks/synthetic/README.md</a>).</p>
+<p><strong>Why it works.</strong> &quot;Give the agent the screenshot, not the page's code&quot;: an agent reading the DOM &quot;finds the buy button every time, and therefore finds no confusion, which is the only thing worth running this for.&quot;</p>
+<p><strong>Steps.</strong></p>
+<ol><li><strong>Choose four to six invented readers, for disagreement, not coverage:</strong> who the site is for, who it must convince, a sceptic who will never buy, someone on a phone, someone anxious about money, and one outside the in-group (Dinis, for PrompTugal: &quot;one who does not know what a prompt is&quot;). Never model a real person.</li><li><strong>Write each as a record:</strong> situation, the question they arrive with, what they know, <strong>what they do not know</strong>, what they decide on, <strong>what makes them leave</strong>, patience, device and window size. The negative fields make the run honest.</li><li><strong>Write the expected journey before any run.</strong> The gap between it and the run is the finding.</li><li><strong>Run on screenshots only,</strong> one action per step, up to about 14 steps: observe, say what you see, think, record a question the page did not answer, record a confusion (it must point at the screenshot), act with a reason. Leaving is a result.</li><li><strong>Interview</strong> every reader with the same questions: what is this; was any of it for you; did you believe it; where did you guess; what did you still not know; would you act; one change; rate 1 to 5.</li><li><strong>Order findings by what they cost:</strong> blocks a decision, costs trust, loses a reader, minor.</li><li><strong>Check every surprising finding</strong> against the capture and the site before publishing; label tooling artefacts and keep them.</li><li><strong>Publish with the protocol inside,</strong> &quot;everybody in it is invented&quot; above the fold, fix, then run the same readers again: &quot;A finding that disappears is a fix that worked, and a new one is something the fix broke.&quot;</li></ol>
+<p><strong>Cadence.</strong> Do not loop. synthetic@PrompTugal.dinis ran only when a page had changed by 20%, the front page's first screen by 10%, or a new article appeared, and otherwise said so in one line. Run the cheap mechanical measurement (method 1) before every reader run.</p>
+<p><strong>Mistakes to skip</strong> (from the newsroom run): a helper that reloaded per step; scroll restored before images loaded, which made two false findings; a protocol copied from another site that kept its rules. Commit the capture and brief scripts: PrompTugal's lived in a scratch folder and the method had to be rebuilt from its description.</p>
+<p><strong>Safety.</strong> Pause your own analytics for synthetic visits. No screenshot shows a signed-in view. Every reader stays marked SYNTHETIC.</p>
+<h2 id="what-each-is-good-and-poor-at">What each is good and poor at</h2>
+<div class="table"><table><thead><tr><th></th><th>Good at</th><th>Poor at</th></tr></thead><tbody><tr><td>Cold-reader review</td><td>layout, length, words, broken states, regressions; fast and repeatable</td><td>knowing what a newcomer does not know</td></tr><tr><td>Synthetic readers</td><td>where a page loses someone, the unanswered question, the word that means something else</td><td>how many real people it would lose; what is worth paying for</td></tr><tr><td>Real people</td><td>what really confuses and what is worth paying for</td><td>volume and speed</td></tr></tbody></table></div>
+<footer>
+<p>This page as Markdown: <a href="methods.md">methods.md</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
+<p>Version __VERSION__ · specialist.ux@AgentiCCells.dinis · Code Apache-2.0, text CC BY 4.0.</p>
+</footer>
+</main>
+</body>
+</html>

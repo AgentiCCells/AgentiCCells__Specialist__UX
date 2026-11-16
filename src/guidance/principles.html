@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Principles</title>
-<meta name="description" content="Being written on 16 November 2026. The review of agenticcells.site links here ahead of the text; the anchors it uses (say what is not here; a link says where it goes) will be the first two principles.">
+<title>UX principles: what readers trip on, and how to avoid it</title>
+<meta name="description" content="Thirty principles drawn from what readers and users actually tripped on across our sites and apps in September to November 2026, each with its source and an example.">
 <style>
 body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
 main{max-width:44rem;margin:0 auto;padding:2rem 1rem 3rem}
-nav.crumbs{font-size:.9rem;margin-bottom:1rem}
+nav.crumbs{font-size:.95rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0 1rem}nav.crumbs a{display:inline-block;padding:.55rem 0}footer a{display:inline-block;padding:.3rem 0}
 h1{font-size:1.9rem;line-height:1.2}h2{font-size:1.3rem;margin-top:2.2rem}h3{font-size:1.1rem;margin-top:1.6rem}
 a{color:#1d4f91}code{font-size:.88em;background:#f0e8db;padding:0 .2em;border-radius:3px}
 pre{background:#f0e8db;padding:.8rem;overflow-x:auto}pre code{background:none;padding:0}
@@ -20,9 +20,117 @@ footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem;font-size:.9re
 </head>
 <body>
 <main>
-<nav class="crumbs"><a href="../index.html">Specialist: UX</a> · <a href="../guidance/index.html">Guidance</a> · <a href="../pack/index.html">Pack</a> · <a href="../reviews/index.html">Reviews</a> · <a href="../abp/specialist-ux.html">ABP</a></nav>
-<h1 id="principles">Principles</h1>
-<p>Being written on 16 November 2026. The review of agenticcells.site links here ahead of the text; the anchors it uses (say what is not here; a link says where it goes) will be the first two principles.</p>
+<nav class="crumbs" aria-label="This site"><a href="../index.html">Specialist: UX</a><a href="../guidance/index.html">Guidance</a><a href="../pack/index.html">Day-one pack</a><a href="../reviews/index.html">Reviews</a><a href="../abp/specialist-ux.html">Behaviour policy</a></nav>
+<h1 id="ux-principles">UX principles</h1>
+<p>Version 1.0.0, 16 November 2026, by specialist.ux@AgentiCCells.dinis. Owner of the skill: Dinis Cruz.</p>
+<p>Each principle comes from a trip someone actually had on one of our sites or apps, not from a textbook. Each one gives the rule, the trip behind it, and its source. Many trips were found by <strong>synthetic readers</strong> (invented personas reading screenshots) or by a <strong>sherpa</strong> (an agent reading cold, on a phone). That is inspection, not user research. Where a real person tripped, it says so.</p>
+<p>Sections: <a href="#the-first-screen">the first screen</a> (1 to 4), <a href="#words">words</a> (5 to 10), <a href="#honesty">honesty</a> (11 to 16), <a href="#navigation">navigation</a> (17 to 20), <a href="#phone-and-layout">phone and layout</a> (21 to 23), <a href="#states">states</a> (24 to 26), <a href="#how-we-check">how we check</a> (27 to 30). Short source names (PTN, Ledger, Sherpa, iOS, WS, Storm, RM study) are spelled out <a href="#short-source-names">at the end</a>.</p>
+<h2 id="the-first-screen">The first screen</h2>
+<h3 id="1-the-first-screen-says-what-this-is-who-made-it-and-what-to-do-next">1. The first screen says what this is, who made it, and what to do next</h3>
+<p><strong>Trip.</strong> On the storm site, the front page was the data. Dinis, 11 November 2026, about 09:50 UTC: &quot;we need to send this to a journalist ... So the first page has to be super clear ... It feels to me that the current page is like the data page.&quot; Synthetic run 1 measured the same: &quot;/ never says what this is, who makes it, or that AI agents make it.&quot; On newsroom.sgit.ai the phone's first screen was &quot;the masthead, eight menu links and an editor's note&quot;; the commuter persona &quot;read the £5.00 as a price&quot;.</p>
+<p><strong>Do.</strong> One plain line at the top: what it is, for whom, made by whom. Then the one next step. Check it on a phone.</p>
+<p>Sources: Storm <code>BRIEF.md</code> and <code>research/synthetic/findings.md</code>; <a href="https://newsroom.sgit.ai/articles/how-to-run-synthetic-users.html">https://newsroom.sgit.ai/articles/how-to-run-synthetic-users.html</a></p>
+<h3 id="2-name-the-thing-before-you-argue-for-it-and-give-each-thing-one-name">2. Name the thing before you argue for it, and give each thing one name</h3>
+<p><strong>Trip.</strong> On riskmandate.ai, &quot;The words Agent Behaviour Policy first appeared at character 5,387 of 9,270&quot;, and &quot;Two of the five read 'Buy one, from £5' as buying an insurance policy&quot;. The fix put the full name at character 67; four of five would then spend, against two of five (RM study, v1.20.1 to v1.25.1, September 2026). The same study found a rename done on the home page only: linked pages still said &quot;the grant&quot; and &quot;the delta&quot;. Today the AgentiCCells idea is written &quot;AgentiCCells&quot;, &quot;AgenticCell&quot; and &quot;agentic.cell&quot;.</p>
+<p><strong>Do.</strong> Name the product in the first sentence. Qualify an ambiguous noun (&quot;behaviour policy&quot;, not &quot;policy&quot;) every time. Keep a short glossary per site; a rename is a site-wide change.</p>
+<h3 id="3-lead-with-the-reader-s-present">3. Lead with the reader's present</h3>
+<p><strong>Trip.</strong> The summit app opened &quot;at the top of the day, not at now&quot; (Sherpa <code>review-2026-11-09-1830-the-app.md</code>, AP1). The iOS app opened on &quot;'All days': hundreds of rows&quot; (iOS <code>briefs/2026-11-08__three-apps/status/review.md</code>, F3). The home page put &quot;Now and next&quot; 2,407 to 6,201 px down on a phone (PTN <code>board/spec-home-page-designs.md</code>, D11).</p>
+<p><strong>Do.</strong> Open on now, mark it, and keep the controls pinned when you jump.</p>
+<h3 id="4-put-the-person-s-next-action-first-ranked-by-who-is-blocked">4. Put the person's next action first, ranked by who is blocked</h3>
+<p><strong>Trip.</strong> A blocking ask that only Dinis could do sat at row 53 of 93, in file order (<code>readdirSync().sort()</code>). Dinis, 4 November, about 16:40 UTC: &quot;why this high-importance issue (WS-145) was not picked up and shows in that massive list&quot;. A team dashboard was 30,705 px tall; the person's own part started 3,637 px down.</p>
+<p><strong>Do.</strong> An &quot;Only you can do this&quot; block at the top, ranked by who is blocked, capped at five, each with its click path. Shared material folds below.</p>
+<p>Source: WS <code>board/WS-151-incident-ws-145-not-surfaced-to-dinis.md</code></p>
+<h2 id="words">Words</h2>
+<h3 id="5-write-in-the-reader-s-words-not-the-team-s">5. Write in the reader's words, not the team's</h3>
+<p><strong>Trip.</strong> &quot;Who made this&quot; read: &quot;'storyline S2', 'the curator's map', 'marked Ready' ... '403'&quot; (Ledger F30). &quot;116 releases&quot;: &quot;an attendee does not know what a release is&quot; (Sherpa <code>review-2026-11-06-0930-wake.md</code>, D10). The iOS graph's subtitle was &quot;1,688 nodes, drawn natively&quot; (iOS review F6). Storm newcomers did not know &quot;IPMA, ANEPC, METAR, CAP, UTC ... markdown twin, sha256, conductor@, vault&quot;.</p>
+<p><strong>Do.</strong> Read every reader-facing string as a cold reader. No ids, paths, status codes or team verbs. Gloss an acronym the first time (&quot;IPMA, Portugal's weather service&quot;).</p>
+<h3 id="6-an-address-with-an-reads-as-an-email-address">6. An address with an @ reads as an email address</h3>
+<p><strong>Trip.</strong> &quot;Thirteen agent addresses on the page read as e-mail addresses to a cold reader&quot; (Sherpa <code>review-2026-11-06-0630-wake.md</code>). A persona: &quot;The writer has an email address instead of a name.&quot;</p>
+<p><strong>Do.</strong> On cards, say it in words (&quot;By our AI journalist, for the editor&quot;). Keep the agent's address one click deeper, on the article page. Never hide that an agent wrote it (principle 16).</p>
+<h3 id="7-a-currency-sign-reads-as-a-price-unless-the-words-beside-it-say-otherwise">7. A currency sign reads as a price unless the words beside it say otherwise</h3>
+<p><strong>Trip.</strong> A free reading credit: &quot;every persona read it as a paywall or a charge&quot; (Ledger F01). The first fix was a hover tooltip, which a phone cannot show.</p>
+<p><strong>Do.</strong> Put the meaning in the words next to the number (&quot;£5.00 free&quot;), visible on a phone. Search every page for the old money words (&quot;charged&quot;, &quot;pay&quot;) when you change the meaning (F53).</p>
+<h3 id="8-a-label-never-says-more-than-its-source">8. A label never says more than its source</h3>
+<p><strong>Trip.</strong> In the storm, &quot;Day 3 of Web Summit is tagged 'running' ... but the organisers' words are only that it 'aims to proceed as planned'&quot;; a parks row showed &quot;running&quot; while the city had closed them (Storm <code>research/synthetic/findings-guide-1.md</code>). &quot;Every fact sourced and dated&quot; was read as &quot;every fact checked&quot; (Ledger F45).</p>
+<p><strong>Do.</strong> Use the source's own words in a status. Put the day in it (&quot;Thu: not announced&quot;). In a crisis a status label is read as advice.</p>
+<h3 id="9-keep-notes-about-our-own-process-apart-from-facts-about-the-world">9. Keep notes about our own process apart from facts about the world</h3>
+<p><strong>Trip.</strong> &quot;'NOT READ' reads as a service status. For about 2 s the all-caps chip on the Metro row reads as 'not running'&quot; (Storm <code>research/synthetic/findings-guide-5.md</code>). &quot;About&quot; opened a 9,279 px internal brief; &quot;Two personas read it as internal notes published by mistake&quot; (Storm <code>research/synthetic/findings.md</code>).</p>
+<p><strong>Do.</strong> Process notes in a quiet lower-case style, worded as being about us (&quot;we do not read this site&quot;). Internal pages one level down and labelled internal.</p>
+<h3 id="10-templates-handle-the-edge-cases-in-the-data">10. Templates handle the edge cases in the data</h3>
+<p><strong>Trip.</strong> &quot;1 items&quot; (F56), &quot;?.&quot; after a title ending in a question mark (F61), an unknown time shown as &quot;All day&quot; (&quot;a reader cannot tell when to go&quot;, F60), &quot;what is on&quot; on a past day, &quot;in in 1 day&quot; and &quot;Updated tomorrow&quot; in the iOS app (iOS <code>website/build-log/2026-11-07-0620.md</code>).</p>
+<p><strong>Do.</strong> Test every generated string with zero, one, many, null and punctuation already present. Unknown must render as unknown, never as a confident value. Tense follows time.</p>
+<h2 id="honesty">Honesty</h2>
+<h3 id="11-say-what-is-not-here">11. Say what is not here</h3>
+<p><strong>Trip and fix.</strong> When licence rules removed most of a programme, empty lists read as broken (&quot;'Nothing matches on this day.' At the venue that reads as a broken app&quot;). The &quot;not everything&quot; note fixed it: why, what remains, how items come back, &quot;N of M shown&quot;, not in red because nothing shown is wrong. agenticcells.site does it well: &quot;What is not here yet ... If this page and REALITY.md disagree, REALITY.md is right.&quot;</p>
+<p><strong>Do.</strong> A short, dated section on what does not exist yet, and where the full thing is if it is elsewhere.</p>
+<p>Sources: PTN <code>board/spec-the-not-everything-note.md</code>; <a href="https://agenticcells.site/">https://agenticcells.site/</a></p>
+<h3 id="12-a-trust-claim-needs-an-action-beside-it">12. A trust claim needs an action beside it</h3>
+<p><strong>Trip.</strong> &quot;Signed&quot;: &quot;All 4 readers in run 5 guessed what it means; none could check it&quot; (Ledger F28). Fixed by a line under each article linking the signed text, the signature, the key and how we publish.</p>
+<p><strong>Do.</strong> Every badge (signed, checked, verified) links to the thing a reader can check, in plain words. Show a badge only when it is true for that item (PTN <code>board/spec-front-page-e.md</code>, E8).</p>
+<h3 id="13-one-page-tells-one-story">13. One page tells one story</h3>
+<p><strong>Trip.</strong> &quot;No person read this article before it went live&quot; beside a footer saying it was edited by three people: &quot;a compliance reader cannot reconcile the two&quot; (Ledger F50). &quot;OUR PICK&quot; beside &quot;Nothing on it is an endorsement&quot; (F15). £4.97 in the bar and £4.49 on the card: the editor persona &quot;trusted the honesty and doubted the engineering&quot; (newsroom study).</p>
+<p><strong>Do.</strong> Feed every statement about the same fact from one source. Read the whole page, footer included, as one text before release.</p>
+<h3 id="14-freshness-is-part-of-the-fact">14. Freshness is part of the fact</h3>
+<p><strong>Trip.</strong> &quot;The page says 'Last checked 21:37 UTC' at 06:35 on Wednesday: nine hours old on the morning IPMA's red rain warning starts&quot; (Sherpa <code>review-2026-11-11-0630-storm-and-agentic.md</code>). Today the Web Summit home page still says &quot;0 days to the summit&quot; and &quot;The summit is on&quot;, a week after it ended.</p>
+<p><strong>Do.</strong> Show age next to time (&quot;read 9 h ago&quot;). After an event, a dated archive line and counters in the past tense. Exact UTC times are for logs; readers want relative age.</p>
+<h3 id="15-never-show-an-invitation-control-or-promise-without-a-working-route">15. Never show an invitation, control or promise without a working route</h3>
+<p><strong>Trip.</strong> &quot;'Correct us, add to us' says 'Tell Dinis Cruz' with no link, form or route&quot; (Ledger F46, blocking, open 10 days). A printed card promised &quot;Book a meeting&quot; and &quot;Talk to my agent&quot;; the page said &quot;coming this week&quot; (WS <code>board/WS-146-the-meet-pages-before-the-cards-are-printed.md</code>). &quot;Play the briefing&quot; played nothing (F39).</p>
+<p><strong>Do.</strong> If the route waits on a decision, take the invitation off until the route exists. Never print what the page cannot deliver.</p>
+<h3 id="16-mark-simulated-as-simulated-and-agents-as-agents">16. Mark simulated as simulated, and agents as agents</h3>
+<p><strong>Trip and fix.</strong> The synthetic readers page's &quot;SYNTHETIC&quot; label and &quot;This is not user research&quot; were called &quot;the most honest line on the site&quot; (Sherpa <code>review-2026-11-06-the-synthetic-readers-page.md</code>). Hiding that an agent wrote an article was a blocking finding (F35); the researcher persona asked for &quot;the agent involvement on the byline of every article, where a reader meets the name&quot; (<a href="https://newsroom.sgit.ai/articles/who-is-speaking.html">https://newsroom.sgit.ai/articles/who-is-speaking.html</a>).</p>
+<p><strong>Do.</strong> Label made-up examples where they are read (&quot;Made-up example&quot;, as the hub does). Say who is speaking on the byline. An inspection is never called research.</p>
+<h2 id="navigation">Navigation</h2>
+<h3 id="17-a-link-says-where-it-goes">17. A link says where it goes</h3>
+<p><strong>Trip.</strong> On agenticcells.site, &quot;The factory's public repository&quot; links to the website's repository, not the factory's (review of 16 November 2026, finding 2). PrompTugal's footer &quot;Source code&quot; linked an old repository (F16). On agenticcells.ai, tables label every source just &quot;Link&quot; (reviewer@AgentiCCells.dinis, 16 November 12:12).</p>
+<p><strong>Do.</strong> Link text names the destination. Show the full address for an outside link so the reader knows they are leaving (PTN <code>board/spec-the-live-sources-strip.md</code>, L2). A link appears only once its target is live.</p>
+<h3 id="18-every-destination-one-tap-from-the-phone-s-first-screen-hidden-scroll-needs-a-cue">18. Every destination one tap from the phone's first screen; hidden scroll needs a cue</h3>
+<p><strong>Trip.</strong> &quot;On a phone, six of eight sections sat behind a swipe nobody knew to make&quot; (Sherpa <code>review-2026-11-06-the-top-of-the-page.md</code>, T1). Dinis &quot;on his phone in portrait ... cannot find the Newsroom link&quot; (T2). A graph fixed by making it scroll sideways: &quot;Nothing says so&quot; (G1).</p>
+<p><strong>Do.</strong> A Menu on the phone. A sideways strip shows a cut item at the edge, or says &quot;Swipe to see more&quot;.</p>
+<h3 id="19-one-front-door-per-person-remove-a-view-before-adding-one">19. One front door per person; remove a view before adding one</h3>
+<p><strong>Trip (a real person).</strong> A team member, 3 November: &quot;too many views of the same thing (my dashboard, the command centre, the For-you panel, the board, the stand-up briefings, two board-health pages, the conductor's briefs). I don't know which one to look at first.&quot; The same day another view was added. The ask went undecided for four days (WS <code>content/pulse-summary.md</code>).</p>
+<p><strong>Do.</strong> One &quot;start here&quot; page per person, the rest linked from it. Each new view names the one it replaces.</p>
+<h3 id="20-same-destination-same-label-one-primary-action">20. Same destination, same label; one primary action</h3>
+<p><strong>Trip.</strong> &quot;The header's button says Get in touch on the home page and Book a demo on three others&quot; (RM study). agenticcells.site's nav says &quot;Home · Hub · Publish&quot;; the hub's says &quot;Sites · Publish or copy&quot; for the same places. riskmandate.ai's menu grew to 34 entries, with two near-identical &quot;Agent Behaviour Policy&quot; pages four rows apart.</p>
+<p><strong>Do.</strong> One nav vocabulary per family of sites, kept in the template. Navigation reflects what a reader is here for now, not the order pages were written.</p>
+<h2 id="phone-and-layout">Phone and layout</h2>
+<h3 id="21-measure-at-390-px-nothing-panning-covered-or-cut">21. Measure at 390 px: nothing panning, covered or cut</h3>
+<p><strong>Trip.</strong> &quot;The article lays out 591 px wide on a 390 px phone&quot; (Sherpa T9, F10). &quot;The floating Ask button covers the right end of a headline in every screen&quot; (T11). A wider credit pill cut the site's own name to &quot;PrompTugal.ne…&quot; (F55). A time wrapped as &quot;11:05 A / M&quot; in the iOS app (F16).</p>
+<p><strong>Do.</strong> On every page: scroll width equals viewport width at 390 px; no floating control without a reserved gutter; the longest locale and the narrowest phone tried.</p>
+<h3 id="22-length-is-a-cost-the-reader-pays">22. Length is a cost the reader pays</h3>
+<p><strong>Trip and fix.</strong> The synthetic readers page was &quot;amazing, but completely unreadable&quot; (Dinis, 6 November); its fix list was section 14 of 15. Putting the scoreboard first and the method last took it from 64 to 18 phone screens and from about 10,000 to about 2,500 words (PTN <code>board/passes/2026-11-06-the-synthetic-readers-page.md</code>). A storm guide went from 16,625 to 4,235 px over 13 versions. A trust page on agenticcells.ai grew to 64,292 px before a cap.</p>
+<p><strong>Do.</strong> Answers before statistics. The newest five, then &quot;Earlier (N)&quot;. Fold long lists with native <code>&lt;details&gt;</code>. Measure the answer's pixel position after every change: each fix pushes another answer down.</p>
+<h3 id="23-floors-text-12-px-targets-24-px-44-for-navigation-never-colour-alone">23. Floors: text 12 px, targets 24 px (44 for navigation), never colour alone</h3>
+<p><strong>Trip.</strong> A 9 px &quot;AI-made&quot; label; 10 to 15 links under 32 px per page on agenticcells.ai across five reviews; a maturity level shown by colour only.</p>
+<p><strong>Do.</strong> <code>font-size: max(12px, ...)</code>, <code>min-height: 24px</code> (WCAG 2.2), 44 px for navigation; the level in words with an <code>aria-label</code>; contrast at least AA in every theme, checked by the build (<a href="https://newsroom.sgit.ai/articles/dark-mode-and-four-more.html">https://newsroom.sgit.ai/articles/dark-mode-and-four-more.html</a>).</p>
+<p>Sources: PTN <code>board/spec-home-page-designs.md</code> (H6); PTN <code>board/spec-maturity-badge.md</code></p>
+<h2 id="states">States</h2>
+<h3 id="24-design-the-empty-offline-and-changed-states">24. Design the empty, offline and changed states</h3>
+<p><strong>Trip.</strong> &quot;0 items in our programme on Thursday 12 November ... five things to plan around&quot; (Sherpa <code>review-2026-11-12-0030-the-not-everything-note.md</code>). The offline page had &quot;no styles, no top, no tab bar ... a reader takes it for an error&quot; (Sherpa <code>review-2026-11-07-0930-offline-mode.md</code>). The iOS talk detail opened offline on &quot;Connect to load this talk's times&quot; although the data was on the phone (F23).</p>
+<p><strong>Do.</strong> An empty state says why and offers one way forward. A fallback page looks like the product and marks what will work. Never strand a user offline when the data is on the device.</p>
+<h3 id="25-when-a-fact-changes-check-every-way-in-to-it">25. When a fact changes, check every way in to it</h3>
+<p><strong>Trip and fix.</strong> When Day 2 of the summit was called off by the storm, the home page was right within an hour, &quot;the day's own page three hours later, the app last&quot;; the app still listed the day &quot;with 'Add' on every item&quot; (Sherpa <code>review-2026-11-10-2130-day-2-called-off.md</code>).</p>
+<p><strong>Do.</strong> List every surface that shows the fact (home, day page, strip, app, feed) and check each, first screen first, on a phone.</p>
+<h3 id="26-ask-for-permission-at-the-moment-of-use">26. Ask for permission at the moment of use</h3>
+<p><strong>Trip.</strong> The notification prompt appeared at launch: &quot;It covers 60 of 63 store images&quot; (iOS review F15).</p>
+<p><strong>Do.</strong> Ask on the first action that needs it, with the reason in one line.</p>
+<h2 id="how-we-check">How we check</h2>
+<h3 id="27-check-in-a-real-browser-with-real-data-the-console-counts">27. Check in a real browser, with real data; the console counts</h3>
+<p><strong>Trip.</strong> On riskmandate.ai, &quot;a page error on every step of every journey ... The menu, the mobile drawer ... were dead&quot;, while &quot;twenty-six tests, four npm run check gates and two further CI checks all passed&quot; (RM study). A view switch rendered &quot;one letter per line&quot; (Sherpa <code>review-2026-11-09-0330-the-list-pages.md</code>, L1). An iOS screen &quot;failed with real data&quot; (iOS <code>briefs/2026-11-08__overnight-push/status/design.md</code>).</p>
+<p><strong>Do.</strong> Drive a real browser; record page errors; screenshot every theme; use the live data, not samples. Review what users get, not the debug build.</p>
+<h3 id="28-after-any-fix-re-measure-the-whole-first-screen-at-the-narrowest-width">28. After any fix, re-measure the whole first screen at the narrowest width</h3>
+<p><strong>Trip.</strong> Fixing the credit (F01) cut the site's name (F55). Jumping the app to &quot;now&quot; (AP1) pushed the day row off screen (AP5). Naming the agent on bylines (F35) brought back the email look (F9).</p>
+<p><strong>Do.</strong> A fix is checked against the original finding and against the whole first screen, on the phone. When two reader needs pull against each other, write both as checks.</p>
+<h3 id="29-generate-pages-from-the-record-so-they-cannot-drift">29. Generate pages from the record, so they cannot drift</h3>
+<p><strong>Trip.</strong> Mock-ups typed &quot;218 events&quot; and &quot;22 stories&quot;; the build counted 215 and 31 (PTN <code>board/spec-home-page-designs.md</code>, D5). The live synthetic page still lists as urgent two findings its own ledger marks verified. agenticcells.site says no sites live on its subdomains while ten answer.</p>
+<p><strong>Do.</strong> Every number and list from data. A generated summary carries a check that its top items still match the data. A hand-written &quot;today&quot; line carries a date.</p>
+<h3 id="30-write-the-acceptance-check-before-the-build">30. Write the acceptance check before the build</h3>
+<p><strong>Fix that worked.</strong> Specs that listed numbered pass conditions at 390 and 1440 px, light and dark, before building, then re-checked with exact selectors and pixel values, turned fixes into one-liners (&quot;<code>height: 40px</code> gives 245 px wide&quot;).</p>
+<p><strong>Do.</strong> For any page or feature: the reader, their question, and three to six measurable checks, written first.</p>
+<p>Sources: PTN <code>board/spec-front-page-e.md</code>, <code>board/spec-list-pages-and-days-check.md</code></p>
+<h2 id="what-this-does-not-claim">What this does not claim</h2>
+<ul><li>These principles come from our own sites and apps over about ten weeks. They are not a complete UX standard; where WCAG or platform guidelines say more, they win.</li><li>Most trips were found by synthetic readers and sherpa reviews, which are inspection by agents. They show where a page can lose someone, not how many real people it would lose.</li><li>Some fixes cited here were not re-checked live by me on 16 November 2026; their state is as the source file records it.</li></ul>
+<h2 id="short-source-names">Short source names</h2>
+<ul><li><strong>PTN</strong> = <a href="https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/">https://github.com/PrompTugal/PrompTugal__News__Website/blob/dev/</a></li><li><strong>Ledger</strong> = PTN <code>desks/synthetic/findings.json</code> (synthetic@PrompTugal.dinis, findings F01 to F61)</li><li><strong>Sherpa</strong> = PTN <code>board/team/sherpa/</code></li><li><strong>iOS</strong> = <a href="https://github.com/PrompTugal/PrompTugal__App__iOS/blob/dev/">https://github.com/PrompTugal/PrompTugal__App__iOS/blob/dev/</a></li><li><strong>WS</strong> = <a href="https://github.com/SGit-AI/SGit-AI__Website__Web-Summit/blob/dev/">https://github.com/SGit-AI/SGit-AI__Website__Web-Summit/blob/dev/</a></li><li><strong>Storm</strong> = <a href="https://github.com/PrompTugal/PrompTugal__News__Storm-Charles/blob/dev/">https://github.com/PrompTugal/PrompTugal__News__Storm-Charles/blob/dev/</a></li><li><strong>RM study</strong> = <a href="https://riskmandate.ai/synthetic-users.md">https://riskmandate.ai/synthetic-users.md</a></li></ul>
 <footer>
 <p>This page as Markdown: <a href="principles.md">principles.md</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
 <p>Version __VERSION__ · specialist.ux@AgentiCCells.dinis · Code Apache-2.0, text CC BY 4.0.</p>

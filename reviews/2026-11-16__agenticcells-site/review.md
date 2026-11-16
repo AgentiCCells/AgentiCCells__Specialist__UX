@@ -18,7 +18,7 @@ description: "A worked example of a UX review: agenticcells.site v0.1.4, read on
 
 ## What works
 
-- **The honesty holds up.** "What is not here yet" and the footer ("a first version ... little else yet") tell the reader what not to expect. "If this page and REALITY.md disagree, REALITY.md is right" is a good pattern ([guidance: say what is not here](../../guidance/principles.md#say-what-is-not-here)).
+- **The honesty holds up.** "What is not here yet" and the footer ("a first version ... little else yet") tell the reader what not to expect. "If this page and REALITY.md disagree, REALITY.md is right" is a good pattern ([guidance: say what is not here](../../guidance/principles.md#11-say-what-is-not-here)).
 - **One idea per block,** short sentences, no hype. Fits on a phone with no sideways scroll (scroll width 390 at 390).
 - **The menu works without script** and the "Where to look next" links have tap areas of at least 32px (REALITY.md, 2026-11-16).
 
@@ -36,7 +36,7 @@ description: "A worked example of a UX review: agenticcells.site v0.1.4, read on
 
 **What a reader trips on.** The link labelled "The factory's public repository" goes to https://github.com/AgentiCCells/AgentiCCells__Website, whose README says it is the "Static site for agenticcells.ai". The factory is https://github.com/AgentiCCells/AgentiCCells__Site__Factory. A reader who wants to see how a site is created finds the wrong code and concludes the factory is not public, which the page says it is.
 
-**Proposed fix.** Point the link at `AgentiCCells__Site__Factory`. A link check that compares a link's words with the target's title would have caught it ([guidance: a link says where it goes](../../guidance/principles.md#a-link-says-where-it-goes)).
+**Proposed fix.** Point the link at `AgentiCCells__Site__Factory`. A link check that compares a link's words with the target's title would have caught it ([guidance: a link says where it goes](../../guidance/principles.md#17-a-link-says-where-it-goes)).
 
 ### 3. The only button emails another company (medium)
 

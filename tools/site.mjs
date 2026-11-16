@@ -81,7 +81,7 @@ export function md2html(md) {
 
 const CSS = `body{margin:0;font:18px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;background:#fbf7f0;color:#222}
 main{max-width:44rem;margin:0 auto;padding:2rem 1rem 3rem}
-nav.crumbs{font-size:.9rem;margin-bottom:1rem}
+nav.crumbs{font-size:.95rem;margin-bottom:1rem;display:flex;flex-wrap:wrap;gap:0 1rem}nav.crumbs a{display:inline-block;padding:.55rem 0}footer a{display:inline-block;padding:.3rem 0}
 h1{font-size:1.9rem;line-height:1.2}h2{font-size:1.3rem;margin-top:2.2rem}h3{font-size:1.1rem;margin-top:1.6rem}
 a{color:#1d4f91}code{font-size:.88em;background:#f0e8db;padding:0 .2em;border-radius:3px}
 pre{background:#f0e8db;padding:.8rem;overflow-x:auto}pre code{background:none;padding:0}
@@ -105,7 +105,7 @@ ${CSS}
 </head>
 <body>
 <main>
-<nav class="crumbs"><a href="${up}index.html">Specialist: UX</a> · <a href="${up}guidance/index.html">Guidance</a> · <a href="${up}pack/index.html">Pack</a> · <a href="${up}reviews/index.html">Reviews</a> · <a href="${up}abp/specialist-ux.html">ABP</a></nav>
+<nav class="crumbs" aria-label="This site"><a href="${up}index.html">Specialist: UX</a><a href="${up}guidance/index.html">Guidance</a><a href="${up}pack/index.html">Day-one pack</a><a href="${up}reviews/index.html">Reviews</a><a href="${up}abp/specialist-ux.html">Behaviour policy</a></nav>
 ${body}
 <footer>
 <p>This page as Markdown: <a href="${mdName}">${mdName}</a>. Source: <a href="https://github.com/AgentiCCells/AgentiCCells__Specialist__UX">AgentiCCells__Specialist__UX</a> (branch dev).</p>
