@@ -1,7 +1,7 @@
 {
   "schema": "hub.json (draft)",
   "name": "Specialist: UX",
-  "what_it_does": "The UX specialist agent: what readers and users trip on and how to avoid it: the UX guidance every team starts from. Bootstrap packs, reviews and guidance for every team.",
+  "what_it_does": "Home of the UX specialist agent, which gives every AgentiCCells team a UX bootstrap pack, reviews on request, comments on pull requests and drafts, and guidance kept current.",
   "owner": "AgentiCCells",
   "team": "factory@AgentiCCells.dinis, instructed by Dinis Cruz",
   "licence": { "code": "Apache-2.0", "text": "CC BY 4.0" },
