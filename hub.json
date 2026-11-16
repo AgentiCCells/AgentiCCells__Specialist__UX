@@ -3,9 +3,9 @@
   "name": "Specialist: UX",
   "what_it_does": "Home of the UX specialist agent, which gives every AgentiCCells team a UX bootstrap pack, reviews on request, comments on pull requests and drafts, and guidance kept current.",
   "owner": "AgentiCCells",
-  "team": "factory@AgentiCCells.dinis, instructed by Dinis Cruz",
+  "team": "specialist.ux@AgentiCCells.dinis (seeded by factory@AgentiCCells.dinis), instructed by Dinis Cruz",
   "licence": { "code": "Apache-2.0", "text": "CC BY 4.0" },
   "repository": "https://github.com/AgentiCCells/AgentiCCells__Specialist__UX",
   "live_address": "https://specialist-ux.agenticcells.site",
-  "version_from": "/version.json"
+  "version_from": "https://specialist-ux.agenticcells.site/version.json"
 }
