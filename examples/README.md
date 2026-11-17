@@ -1,6 +1,6 @@
 ---
 title: "UX examples: the best we have"
-description: "Pages and patterns from our own sites and apps that got UX right, with links and why each one works."
+description: "The best UX pages and patterns from our own sites and apps, with links and why each one works: honesty labels, structure, states, specs."
 ---
 # Examples: the best we have
 

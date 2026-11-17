@@ -1,6 +1,6 @@
 ---
 title: "The UX day-one pack"
-description: "What a new AgentiCCells team copies on its first day, so its UX starts from what we already learned: a UX.md for the repository root, a spec template, the measuring script and the checklist."
+description: "What a new AgentiCCells team copies on day one: a UX.md for the repository root, a spec template, a measuring script and the checklist."
 ---
 # The UX day-one pack
 

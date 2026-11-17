@@ -1,6 +1,6 @@
 ---
 title: "Review: agenticcells.site home page (16 November 2026)"
-description: "A worked example of a UX review: agenticcells.site v0.1.4, read on a phone and a desktop. Seven findings, ordered by what they cost a reader, each with a proposed fix. A proposal, not pushed."
+description: "A worked UX review of the agenticcells.site home page, read on a phone and a desktop: seven findings by cost, each with a proposed fix."
 ---
 # Review: agenticcells.site home page
 

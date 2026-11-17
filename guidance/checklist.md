@@ -17,6 +17,7 @@ Run it on every page a release changes, and on the home page every time. Most ch
 - [ ] The product or thing is named by its full name ([2](principles.md#2-name-the-thing-before-you-argue-for-it-and-give-each-thing-one-name)).
 - [ ] Any number with £ or € says what it is in the words beside it ([7](principles.md#7-a-currency-sign-reads-as-a-price-unless-the-words-beside-it-say-otherwise)).
 - [ ] Every main section is reachable in one tap (a Menu counts) ([18](principles.md#18-every-destination-one-tap-from-the-phone-s-first-screen-hidden-scroll-needs-a-cue)).
+- [ ] Shared in a chat, the link shows a card, a title and a description (Open Graph tags; a 1200 × 630 JPEG under 300 KB). For many readers the preview is the first screen.
 - [ ] The site's own name is not cut **(m)** ([21](principles.md#21-measure-at-390-px-nothing-panning-covered-or-cut)).
 
 ## Layout **(m)**

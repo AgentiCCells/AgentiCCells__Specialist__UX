@@ -1,6 +1,6 @@
 ---
 title: "Two review methods: the cold reader and synthetic readers"
-description: "How to run a cold-reader review (the sherpa method) and a synthetic-reader run, as our teams did them, with what to measure, what to write and the mistakes to skip."
+description: "How to run a cold-reader review (the sherpa method) and synthetic readers, as our teams did: what to measure, what to write, what to avoid."
 ---
 # Two review methods
 

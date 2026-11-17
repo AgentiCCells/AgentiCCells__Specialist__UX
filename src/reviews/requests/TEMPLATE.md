@@ -1,6 +1,6 @@
 ---
 title: "Review request template"
-description: "Copy this file to reviews/requests/<date>__<team>__<thing>.md to ask the UX specialist for a review."
+description: "The template a team copies to reviews/requests/ to ask the UX specialist for a review: the reader, their question, what to look at."
 ---
 # Review request: <thing>
 

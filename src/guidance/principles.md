@@ -1,6 +1,6 @@
 ---
 title: "UX principles: what readers trip on, and how to avoid it"
-description: "Thirty principles drawn from what readers and users actually tripped on across our sites and apps in September to November 2026, each with its source and an example."
+description: "Thirty UX principles, each drawn from a trip a reader really had on one of our sites or apps in late 2026, with its source and what to do."
 ---
 # UX principles
 

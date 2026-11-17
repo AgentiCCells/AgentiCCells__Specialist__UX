@@ -1,6 +1,6 @@
 ---
 title: "UX guidance"
-description: "The UX guidance every AgentiCCells team starts from: thirty principles, a pre-release checklist, and two review methods, each drawn from what our readers actually tripped on."
+description: "The UX guidance every AgentiCCells team starts from: thirty principles, a release checklist and two review methods, drawn from real trips."
 ---
 # UX guidance
 

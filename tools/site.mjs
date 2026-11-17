@@ -7,8 +7,38 @@
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, statSync, existsSync, rmSync, copyFileSync } from 'node:fs';
 import { join, dirname, relative, basename } from 'node:path';
 
+// Descriptions for pages whose files carry no front matter (teams copy some of them verbatim).
+const DESCRIPTIONS = {
+  'abp/specialist-ux.md': 'The Agent Behaviour Policy of the UX specialist: deny by default, what it may read, write, review and comment on, and what it never does.',
+  'pack/UX.md': 'UX.md from the day-one pack: the ten rules every page follows, the reader and their question, and how to ask the UX specialist for a review.',
+  'pack/spec-template.md': 'A spec template from the day-one pack: the reader, their question, a ten-second test and measurable checks, written before you build.',
+  'reviews/requests/README.md': 'Open requests for a UX review, one file per request, copied from the template. A review\'s request moves into its folder when it is done.',
+};
 const DIRS = ['abp', 'guidance', 'examples', 'mistakes', 'pack', 'reviews'];
 const OUT = 'src';
+const BASE = 'https://specialist-ux.agenticcells.site/';
+const CARD = { url: BASE + 'assets/share/specialist-ux-1200x630.jpg', alt: 'The words Specialist: UX, and what readers and users trip on, and how to avoid it, on a cream card with an amber edge.' };
+
+// The link-preview tags (Open Graph and Twitter) every page carries; scripts/validate.mjs checks them.
+export function shareTags({ title, description, url }) {
+  const t = esc(title), d = esc(description), u = esc(url);
+  return `<link rel="canonical" href="${u}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Specialist: UX">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="${u}">
+<meta property="og:title" content="${t}">
+<meta property="og:description" content="${d}">
+<meta property="og:image" content="${CARD.url}">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="${esc(CARD.alt)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${t}">
+<meta name="twitter:description" content="${d}">
+<meta name="twitter:image" content="${CARD.url}">`;
+}
 
 const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -90,7 +120,7 @@ blockquote{border-left:4px solid #b5651d;margin:1rem 0;padding:.1rem 1rem;backgr
 footer{margin-top:3rem;border-top:1px solid #ddd;padding-top:1rem;font-size:.9rem;color:#666}
 @media(prefers-color-scheme:dark){body{background:#17140f;color:#eee}a{color:#8fb8ff}code,pre,th{background:#2a2219}blockquote{background:#2a2219}th,td{border-color:#4a4034}footer{color:#aaa;border-color:#444}}`;
 
-function page({ title, description, body, depth, mdName }) {
+function page({ title, description, body, depth, mdName, url }) {
   const up = depth ? '../'.repeat(depth) : '';
   return `<!doctype html>
 <html lang="en-GB">
@@ -99,6 +129,7 @@ function page({ title, description, body, depth, mdName }) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title>
 <meta name="description" content="${esc(description)}">
+${shareTags({ title, description, url })}
 <style>
 ${CSS}
 </style>
@@ -129,16 +160,28 @@ for (const d of DIRS) {
     const h1 = (md.replace(/^---\n[\s\S]*?\n---\n/, '').match(/^# (.+)$/m) || [])[1] || basename(f, '.md');
     const title = fmGet('title') || h1.replace(/[`*]/g, '');
     const firstPara = md.replace(/^---\n[\s\S]*?\n---\n/, '').split('\n\n').map((s) => s.trim()).find((s) => s && !/^(#|\||>|-|\d+\.|```)/.test(s)) || title;
-    const description = fmGet('description') || firstPara.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[`*]/g, '').replace(/\s+/g, ' ').slice(0, 200);
+    const description = DESCRIPTIONS[f] || fmGet('description') || firstPara.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1').replace(/[`*]/g, '').replace(/\s+/g, ' ').slice(0, 200);
     const rel = relative('.', f);
     const outHtml = join(OUT, rel.replace(/(^|\/)README\.md$/, '$1index.md').replace(/\.md$/, '.html'));
     const outMd = outHtml.replace(/\.html$/, '.md');
     mkdirSync(dirname(outHtml), { recursive: true });
     const depth = rel.split('/').length - 1;
-    writeFileSync(outHtml, page({ title, description, body: md2html(md), depth, mdName: basename(outMd) }));
+    const url = BASE + relative(OUT, outHtml).replace(/(^|\/)index\.html$/, '$1');
+    writeFileSync(outHtml, page({ title, description, body: md2html(md), depth, mdName: basename(outMd), url }));
     writeFileSync(outMd, md);
     n++;
   }
 }
 for (const d of DIRS) for (const f of walk(d).filter((p) => /\.(png|jpg|svg)$/.test(p))) { mkdirSync(join(OUT, dirname(f)), { recursive: true }); copyFileSync(f, join(OUT, f)); }
+// The hand-written home page gets the same link-preview tags, between its <!-- share --> markers.
+{
+  const home = join(OUT, 'index.html');
+  const h = readFileSync(home, 'utf8');
+  const title = (h.match(/<title>([^<]+)<\/title>/) || [])[1];
+  const description = (h.match(/<meta name="description" content="([^"]+)"/) || [])[1];
+  if (title && description && h.includes('<!-- share -->')) {
+    const unesc = (x) => x.replace(/&quot;/g, '"').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+    writeFileSync(home, h.replace(/<!-- share -->[\s\S]*?<!-- \/share -->/, `<!-- share -->\n${shareTags({ title: unesc(title), description: unesc(description), url: BASE })}\n<!-- /share -->`));
+  }
+}
 console.log(`site: ${n} pages rendered into ${OUT}/`);
